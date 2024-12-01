@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+{% block main %}
+{% load crispy_forms_tags %}
+    <form action=" " method="POST" class="w-300 h-300">
+        {% csrf_token %}
+        <div class="card w-[50%] mx-auto my-16">
+            <div class="card-body">
+                <h3 class="text-2xl m-4 flex justify-center">Ingrese sus Credenciales</h3>
+                {{ form | crispy }}
+                <div class="flex justify-center gap-8 my-6">
+                    <a href="{% url 'menu' %}" class="">Inicio</a>
+                    <a href="{% url 'registrarse' %}" >Registrarse</a>
+                    <button class=""> Iniciar Sesion</button>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,4 @@
+crispy-bootstrap5==2024.10
+Django==5.1.2
+django-crispy-forms==2.3
+djangorestframework==3.15.2

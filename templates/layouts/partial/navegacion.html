@@ -1,0 +1,123 @@
+{% load static %}
+{% block head %}
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+{% endblock  %}
+<header class="bg-white">
+    <div class="h-8 w-full bg-black flex flex-row justify-center gap-4">
+        <a href="#" class="text-white flex font-small p-1 gap-2">
+            Envíos a todo el Perú
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/1200px-Flag_of_Peru.svg.png" alt="Bandera de Perú" class="w-8  h-auto border-2 border-gray-300 rounded-md shadow-lg">
+        </a>
+        <a href="#" class="text-white font-small p-1 gap-2">
+            Aprovecha nuestros super descuentos!
+        </a>
+    </div>
+    <nav class = " flex flex-col  items-center w-[96%] m-4">
+        <div class="flex w-[96%] justify-between  my-2">
+            <div class="flex items-center ">
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer text-black"></ion-icon>
+            </div>
+            <div class="flex aling-center items-center">
+                <a href="{% url 'menu' %}">
+                    <img class= "h-10 cursor-pointer" src="{% static 'Tricks.jpg' %}"   alt="...">
+                </a>
+                <a href="{% url 'menu' %}">
+                    <h1 class="text-3xl font-semibold text-black hidden md:block">TRICKS</h1>
+                </a>
+            </div>
+            <div class="flex items-center gap-8">
+                <div class=" ">
+                    <ion-icon onclick="onToggleHeart(this)" name="heart" class="text-3xl cursor-pointer text-black"></ion-icon>
+                </div>
+                <div class=" ">
+                    <ion-icon onclick="onTogglePerson(this)" name="person" class="text-3xl cursor-pointer text-black"></ion-icon>
+                </div>
+            </div>
+        </div>
+        <div class="flex w-full justify-center items-center gap-8">
+            <div class="navLinks3 flex justify-center items-center  w-[50%]  my-2 mb-8 border-b-2 border-gray-400">
+                <input type="text" autocomplete="off" placeholder="Busca lo que necesitas en Tricks" class="text-lg font-medium rounded-md p-2 w-full h-full focus:outline-none">
+            </div>
+            <div class=" my-4 mb-8"> 
+                <ion-icon onclick="onToggleSearch(this)" class="text-3xl cursor-pointer text-black" name="search"></ion-icon>
+            </div>
+        </div>
+        <div class = "font-[poppins] nav-links duration-0  absolute text-black bg-stone-50 md:min-h-[13vh] min-h-[55vh] left-0 top-[-100%] w-full flex items-center z-30 px-5  ">
+            <ul class = "flex md:flex-row flex-col justify-between md:items-center md:gap-[4vw] gap-6 w-full ">
+                <li class="w-full flex justify-center items-center">
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'tendencias' %}">Tendencias</a>
+                </li>
+                <li class="w-full flex justify-center items-center">
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'estiletos' %}">Estiletos</a>
+                </li>
+                <li class="w-full flex justify-center items-center">
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'sandalias' %}">Sandalias</a>
+                </li>
+                <li class="w-full flex justify-center items-center">
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'tacones' %}">Tacones</a>
+                </li>
+                <li class="w-full flex justify-center items-center">
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'mocasines' %}">Mocasines</a>
+                </li>
+                <li class="w-full flex justify-center items-center">
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'zuecos' %}">Zuecos</a>
+                </li>
+                <li class="w-full flex justify-center items-center">
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'botas' %}">Botas</a>
+                </li>
+            </ul>
+        </div>
+        <div class = "font-[poppins] nav-links2 duration-0  absolute text-black bg-stone-50 md:min-h-[13vh] min-h-[55vh] left-0 top-[-100%] w-full flex items-center z-10 px-5  ">
+            <ul class = "flex md:flex-row flex-col justify-between md:items-center md:gap-[4vw] gap-6 w-full  ">
+                <li class="w-full flex justify-center items-center">
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'menu_favoritos' %}">Favoritos</a>
+                </li>
+            </ul>
+        </div>
+        <div class = "font-[poppins] nav-links1 duration-0  absolute text-black bg-stone-50 md:min-h-[13vh] min-h-[55vh] left-0 top-[-100%] w-full flex items-center z-20 px-5  ">
+            <ul class = "flex md:flex-row flex-col justify-between md:items-center md:gap-[4vw] gap-6 w-full  ">
+                {% if request.user.is_authenticated %}
+                    <li class="w-full flex justify-center items-center">
+                        <a class="hover:underline hover:underline-offset-2" href="{% url 'salir' %}">Salir</a>
+                    </li>
+                {% else %}
+                    <li class="w-full flex justify-center items-center">
+                        <a class="hover:underline hover:underline-offset-2" href="{% url 'iniciar_sesion' %}">Iniciar Sesion</a>
+                    </li>
+                    <li class="w-full flex justify-center items-center">
+                        <a class="hover:underline hover:underline-offset-2" href="{% url 'registrarse' %}">Registrarse</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
+{% block scripts %}
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[15%]')
+        }
+    </script>
+    <script>
+        const navLinks2 = document.querySelector('.nav-links2')
+        function onToggleHeart(h){
+            h.name = h.name === 'heart' ? 'close' : 'heart'
+            navLinks2.classList.toggle('top-[15%]')
+        }
+    </script>
+    <script>
+        const navLinks3 = document.querySelector('.nav-links3')
+        function onToggleSearch(s){
+            
+        }
+    </script>
+    <script>
+        const navLinks1 = document.querySelector('.nav-links1')
+        function onTogglePerson(p){
+            p.name = p.name === 'person' ? 'close' : 'person'
+            navLinks1.classList.toggle('top-[15%]')
+        }
+    </script>
+{% endblock  %}

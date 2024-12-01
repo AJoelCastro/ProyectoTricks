@@ -1,0 +1,20 @@
+{% load static %}
+<div class = "font-bold flex justify-center gap-4">
+
+        <div class="flex gap-4">
+            {% for page_num in page.paginator.page_range %}
+                {% if page_num == page.number %}
+                    <div class=" p-1 rounded-full h-8 w-8 flex justify-center items-center">
+                        {{ page_num }}
+                    </div>
+                {% else %}
+                    <div class="border border-black p-1 rounded-full h-8 w-8 flex justify-center items-center">
+                        <a href="?page={{ page_num }}" class="">
+                            {{ page_num }}
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+</div>
