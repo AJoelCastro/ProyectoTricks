@@ -4,11 +4,14 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apk add --no-cache postgresql-dev gcc musl-dev
 
-RUN mkdir /code
-
 WORKDIR /code
-COPY . /code/
 
-RUN pip install -r requirements.txt
+COPY requirements.txt .
 
-CMD ["gunicorn","-c","config/gunicorn/conf.py", "--bind",":8000", "--chdir", "prueba", "prueba.wsgi:application"]
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
