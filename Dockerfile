@@ -1,15 +1,14 @@
 FROM python:3.12-alpine3.20 
 
-WORKDIR /app
+ENV PYTHONUNBUFFERED 1
 
-RUN apk update \
-    && apk add --no-cache gcc musl-dev postgresql-dev python3-dev libffi-dev\
-    && pip install --upgrade pip
+RUN apk add --no-cache postgresql-dev gcc musl-dev
 
-COPY ./requirements.txt ./
+RUN mkdir /code
+
+WORKDIR /code
+COPY . /code/
 
 RUN pip install -r requirements.txt
 
-COPY ./ ./
-
-CMD ["python","manage.py","runserver","127.0.0.1:8000"]
+CMD ["gunicorn","-c","config/gunicorn/conf.py", "--bind",":8000", "--chdir", "prueba", "prueba.wsgi:application"]
