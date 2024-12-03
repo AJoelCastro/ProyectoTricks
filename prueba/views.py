@@ -1,12 +1,21 @@
 from django.shortcuts import render
-from Product.models import Products_Tendencias, Products_Estiletos
+from Product.models import Products_Tendencias, Products_Estiletos, Products_Botas, Products_Mocasines, Products_Sandalias, Products_Tacones, Products_Zuecos
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def menu(request):
     return render(request, 'menu.html', {})
 
 def sandalias(request):
-    return render(request, 'sandalias.html', {})
+    products = Products_Sandalias.objects.all()
+    paginator = Paginator(products, 2)
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+    return render(request, 'sandalias.html', {'products':products})
 
 def tendencias(request):
     products = Products_Tendencias.objects.all()
@@ -22,6 +31,14 @@ def tendencias(request):
 
 def estiletos(request):
     products = Products_Estiletos.objects.all()
+    paginator= Paginator(products, 2)
+    page=request.GET.get('page')
+    try:
+        products=paginator.page(page)
+    except PageNotAnInteger:
+        products=paginator.page(1)
+    except EmptyPage:
+        products=paginator.page(paginator.num_pages)
     return render(request, 'estiletos.html', {'products': products})
 
 def tacones(request):

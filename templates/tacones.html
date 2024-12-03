@@ -1,1 +1,37 @@
 {% extends "./layouts/base.html" %}
+{% block main %}
+<div class="bg-gray-100 p-6">
+    <div class="m-6 flex  justify-center">
+        <h1 class="text-4xl font-bold">TACONES</h1>
+    </div>
+    <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
+        {% for product in products %}
+            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
+                <div class="flex">
+                    <img src="{{ product.image }}" alt="">
+                    <a class="-mx-12 my-4 h-7 w-7" href="#">
+                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
+                    </a>
+                </div>
+                <div class = "ml-6 mr-6"><p><b>{{ product.name }}</b></p></div>
+                <div class="ml-6"><p>S/. {{ product.price }}</p></div>
+                <div class="ml-6">
+                    <a class="mx-1" href="#">
+                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
+                        </button>
+                    </a>
+                    <a class="mx-1" href="#">
+                        <button class="h-3 w-3 rounded-full bg-black border border-black">
+                        </button>
+                    </a>
+                    <a class="mx-1" href="#">
+                        <button class="h-3 w-3 rounded-full bg-white border border-black">
+                        </button>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% include "./layouts/partial/paginacion.html" with page=products%}
+</div>
+{% endblock %}
