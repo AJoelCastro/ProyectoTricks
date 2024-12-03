@@ -42,13 +42,49 @@ def estiletos(request):
     return render(request, 'estiletos.html', {'products': products})
 
 def tacones(request):
-    return render(request, 'tacones.html', {})
+    products = Products_Tacones.objects.all()
+    paginator= Paginator(products, 2)
+    page=request.GET.get('page')
+    try:
+        products=paginator.page(page)
+    except PageNotAnInteger:
+        products=paginator.page(1)
+    except EmptyPage:
+        products=paginator.page(paginator.num_pages)
+    return render(request, 'tacones.html', {'products': products})
 
 def mocasines(request):
-    return render(request, 'mocasines.html', {})
+    products = Products_Mocasines.objects.all()
+    paginator= Paginator(products, 2)
+    page=request.GET.get('page')
+    try:
+        products=paginator.page(page)
+    except PageNotAnInteger:
+        products=paginator.page(1)
+    except EmptyPage:
+        products=paginator.page(paginator.num_pages)
+    return render(request, 'mocasines.html', {'products': products})
 
 def zuecos(request):
-    return render(request, 'zuecos.html', {})
+    products = Products_Zuecos.objects.all()
+    paginator= Paginator(products, 2)
+    page=request.GET.get('page')
+    try:
+        products=paginator.page(page)
+    except PageNotAnInteger:
+        products=paginator.page(1)
+    except EmptyPage:
+        products=paginator.page(paginator.num_pages)
+    return render(request, 'zuecos.html', {'products': products})
 
 def botas(request):
-    return render(request, 'botas.html', {})
+    products = Products_Botas.objects.all()
+    paginator= Paginator(products, 2)
+    page=request.GET.get('page')
+    try:
+        products=paginator.page(page)
+    except PageNotAnInteger:
+        products=paginator.page(1)
+    except EmptyPage:
+        products=paginator.page(paginator.num_pages)
+    return render(request, 'botas.html', {'products': products})
