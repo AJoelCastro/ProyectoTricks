@@ -78,7 +78,7 @@ DATABASES = {
         'NAME': 'dbTricks',
         'USER': 'postgres',
         'PASSWORD': 'Cnic2024#kiki',
-        'HOST': 'db_postgres',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
