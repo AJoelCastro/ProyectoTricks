@@ -10,11 +10,11 @@
             <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
                 <div class="flex">
                     <img src="{{ product.image }}" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="{% url 'product_detail' product.id %}">
+                    <a class="-mx-12 my-4 h-7 w-7" href="#">
                         <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
                     </a>
                 </div>
-                <div class = "ml-6 mr-6"><p><b>{{ product.name }}</b></p></div>
+                <div class = "ml-6 mr-6"><p><b><a  href="{% url 'product_detail' id=product.id %}">{{ product.name }}</a></b></p></div>
                 <div class="ml-6"><p>S/. {{ product.price }}</p></div>
                 <div class="ml-6">
                     <a class="mx-1" href="#">

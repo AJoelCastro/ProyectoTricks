@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from Product.models import Products_Tendencias, Products_Estiletos, Products_Botas, Products_Mocasines, Products_Sandalias, Products_Tacones, Products_Zuecos
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.urls import reverse
 
 def menu(request):
     return render(request, 'menu.html', {})
@@ -88,3 +89,7 @@ def botas(request):
     except EmptyPage:
         products=paginator.page(paginator.num_pages)
     return render(request, 'botas.html', {'products': products})
+
+def product_detail(request, id):
+    product = Products_Botas.objects.get(id=id)
+    return render(request, 'product_detail.html', {'product':product})
