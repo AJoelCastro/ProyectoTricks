@@ -93,3 +93,4 @@ def botas(request):
 def product_detail(request, id):
     product = Products_Botas.objects.get(id=id)
     return render(request, 'product_detail.html', {'product':product})
+
