@@ -16,4 +16,5 @@ urlpatterns = [
     path('usuario/', include('usuario.urls')),
     path('favorito/', include('favorito.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('botas/<int:id>/', views.product_detail, name='product_detail'),
 ]

@@ -1,15 +1,17 @@
 FROM python:3.12-alpine3.20 
 
-WORKDIR /app
+ENV PYTHONUNBUFFERED 1
 
-RUN apk update \
-    && apk add --no-cache gcc musl-dev postgresql-dev python3-dev libffi-dev\
-    && pip install --upgrade pip
+RUN apk add --no-cache postgresql-dev gcc musl-dev
 
-COPY ./requirements.txt ./
+WORKDIR /code
 
-RUN pip install -r requirements.txt
+COPY requirements.txt .
 
-COPY ./ ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+COPY . .
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

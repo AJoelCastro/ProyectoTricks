@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-wdixapcvyxxtz(!-+63w2i!jpidk_!&kf*!lk@#ijg&9c)pygb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -78,10 +78,11 @@ DATABASES = {
         'NAME': 'dbTricks',
         'USER': 'postgres',
         'PASSWORD': 'Cnic2024#kiki',
-        'HOST':'127.0.0.1',
-        'PORT':'5432',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -119,12 +120,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = "code/static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR/ "static",
-    '/var/www/static',
-    
+    BASE_DIR / "static",
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
