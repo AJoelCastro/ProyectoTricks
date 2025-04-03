@@ -1,0 +1,63 @@
+{% extends "../layouts/base.html" %}
+{% load static %}
+{% block main %}
+    <div class="grid grid-cols-2 mx-32">
+        <div class="">
+            <img class="" src="{{ product.image }}"/>
+        </div>
+        <div class="flex flex-col gap-8 bg-white">
+            <div class="flex justify-center">
+                <h3 class="text-2xl">
+                    {{ product.name }}
+                </h3>
+            </div>
+            <div class="ml-16 flex flex-col gap-8 text-lg">
+                <div>
+                    <h4>
+                        {{ product.description }}
+                    </h4>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <p>
+                            Colores disponibles
+                        </p>
+                    </div>
+                    <div class="flex gap-4 ">
+                        <div class="flex justify-center items-center gap-2">
+                            <div class="h-4 w-4 rounded-full bg-black">
+                            </div>
+                            <div>
+                                <p>Negro</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center items-center gap-2">
+                            <div class="h-4 w-4 rounded-full bg-red-500">
+                            </div>
+                            <div>
+                                <p>Rojo</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center items-center gap-2">
+                            <div class="h-4 w-4 rounded-full bg-white border border-1">
+                            </div>
+                            <div>
+                                <p>Blanco</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl line-through text-red-800">
+                        S/ {{ product.price }}
+                    </h4>
+                </div>
+            </div>
+            <div class="mx-auto">
+                <button class="bg-black text-white p-2 px-4 rounded-sm" type="button">
+                    Agregar al carrito
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
