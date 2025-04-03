@@ -10,13 +10,14 @@ def menu(request):
     products_zuecos = Product.objects.filter(category='zuecos')
     products_botas = Product.objects.filter(category='botas')
     data = {
-        'products_tendencias': products_tendencias,
-        'products_estiletos': products_estiletos,
-        'products_sandalias': products_sandalias,
-        'products_tacones': products_tacones,
-        'products_mocasines': products_mocasines,
-        'products_zuecos': products_zuecos,
-        'products_botas': products_botas,
+        'TENDENCIAS': products_tendencias,
+        'ESTILETOS': products_estiletos,
+        'SANDALIAS': products_sandalias,
+        'TACONES': products_tacones,
+        'MOCASINES': products_mocasines,
+        'ZUECOS': products_zuecos,
+        'BOTAS': products_botas,
     }
+    print(data['TENDENCIAS'])
     return render(request, 'menu.html', data)
 

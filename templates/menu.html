@@ -1,6 +1,9 @@
 {% extends "./layouts/base.html" %}
 {% block head %}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
 {% endblock  %}
 {% block main %}
 <main class="">
@@ -41,623 +44,125 @@
     </div>  
     <div class="bg-gray-100 flex-row overflow-y-auto p-6">
         <div class="m-6 flex  justify-center">
-            <h1 class="text-4xl font-bold">TENDENCIAS</h1>
+            <h1 class="text-4xl font-bold"><a href="{% url 'product_list_tendencias' %}">TENDENCIAS</a></h1>
         </div>
-        <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex">
-                    <img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
-                    </a>
-                </div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
+        <div class="owl-carousel owl-theme">
+            {% for product in TENDENCIAS %}
+            <div class="item">
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <h3><a href="{% url 'product_detail_tendencias' product.id %}">{{ product.name }}</a></h3>
+                    <p>S/. {{ product.price }}</p>
+                    {% for color in product.color.all %}
+                        <p>{{ color.name }}</p>
+                    {% endfor %}
                 </div>
             </div>
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
         <div class="m-6 flex  justify-center">
-            <h1 class="text-4xl font-bold">ESTILETOS</h1>
+            <h1 class="text-4xl font-bold"><a href="{% url 'product_list_estiletos' %}">ESTILETOS</a></h1>
         </div>
 
-        <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex">
-                    <img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
-                    </a>
-                </div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
+        <div class="owl-carousel owl-theme">
+            {% for product in ESTILETOS %}
+            <div class="item">
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <h3>{{ product.name }}</h3>
+                    <p>Precio: S/. {{ product.price }}</p>
                 </div>
             </div>
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
         <div class="m-6 flex  justify-center">
             <h1 class="text-4xl font-bold"><a href="{% url 'product_list_sandalias' %}">SANDALIAS</a></h1>
         </div>
 
-        <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex">
-                    <img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
-                    </a>
-                </div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
+        <div class="owl-carousel owl-theme">
+            {% for product in SANDALIAS %}
+            <div class="item">
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <h3>{{ product.name }}</h3>
+                    <p>Precio: S/. {{ product.price }}</p>
                 </div>
             </div>
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
         <div class="m-6 flex  justify-center">
-            <h1 class="text-4xl font-bold">TACONES</h1>
+            <h1 class="text-4xl font-bold"><a href="{% url 'product_list_tacones' %}">TACONES</a></h1>
         </div>
 
-        <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex">
-                    <img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
-                    </a>
-                </div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
+        <div class="owl-carousel owl-theme">
+            {% for product in TACONES %}
+            <div class="item">
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <h3>{{ product.name }}</h3>
+                    <p>Precio: S/. {{ product.price }}</p>
                 </div>
             </div>
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
         <div class="m-6 flex  justify-center">
-            <h1 class="text-4xl font-bold">MOCASINES</h1>
+            <h1 class="text-4xl font-bold"><a href="{% url 'product_list_mocasines' %}">MOCASINES</a></h1>
         </div>
 
-        <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex">
-                    <img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
-                    </a>
-                </div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
+        <div class="owl-carousel owl-theme">
+            {% for product in MOCASINES %}
+            <div class="item">
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <h3>{{ product.name }}</h3>
+                    <p>Precio: S/. {{ product.price }}</p>
                 </div>
             </div>
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
         <div class="m-6 flex  justify-center">
-            <h1 class="text-4xl font-bold">ZUECOS</h1>
+            <h1 class="text-4xl font-bold"><a href="{% url 'product_list_zuecos' %}">ZUECOS</a></h1>
         </div>
 
-        <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex">
-                    <img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
-                    </a>
-                </div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
+        <div class="owl-carousel owl-theme">
+            {% for product in ZUECOS %}
+            <div class="item">
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <h3>{{ product.name }}</h3>
+                    <p>Precio: S/. {{ product.price }}</p>
                 </div>
             </div>
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
         <div class="m-6 flex  justify-center">
             <h1 class="text-4xl font-bold"><a href="{% url 'product_list_botas' %}">BOTAS</a></h1>
         </div>
 
-        <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex">
-                    <img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
-                    </a>
-                </div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1" href="#">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
+        <div class="owl-carousel owl-theme">
+            {% for product in BOTAS %}
+            <div class="item">
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <h3>{{ product.name }}</h3>
+                    <p>Precio: S/. {{ product.price }}</p>
                 </div>
             </div>
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white  lg:col-span-1 md:col-span-2 col-span-2">
-                <div class="flex justify-center items-center"><img src="https://www.prada.com/content/dam/pradabkg_products/1/1F8/1F807N/H27F0002/1F807N_H27_F0002_F_005_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.800.jpg" alt=""></div>
-                <div class = "ml-6 mr-6"><p><b>Gamer</b></p></div>
-                <div class="ml-6"><p>$ 2199.9</p></div>
-                <div class="ml-6">
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-red-500 border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-black border border-black">
-                        </button>
-                    </a>
-                    <a class="mx-1">
-                        <button class="h-3 w-3 rounded-full bg-white border border-black">
-                        </button>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+
     </div>
 </main>
 {% endblock %}
 {% block scripts %}
+    <!-- Owl Carousel JS para el carousel principal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         var swiper = new Swiper(".default-carousel", {
         loop: true,
@@ -674,6 +179,25 @@
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
+        });
+    </script>
+    <!-- Owl Carousel JS para el carousel tendencias -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                loop: true, // Hacer que el carrusel sea infinito
+                margin: 20, // Espacio entre productos
+                nav: true, // Mostrar flechas de navegación
+                dots: true, // Mostrar paginación
+                responsive: {
+                    0: { items: 1 },  // 1 producto en pantallas pequeñas
+                    600: { items: 2 }, // 2 productos en pantallas medianas
+                    1000: { items: 4 }  // 4 productos en pantallas grandes
+                }
+            });
         });
     </script>
 {% endblock %}
