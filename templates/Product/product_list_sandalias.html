@@ -1,4 +1,4 @@
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 {% block main %}
 <div class="bg-gray-100 p-6">
     <div class="m-6 flex  justify-center">
@@ -32,6 +32,6 @@
             </div>
         {% endfor %}
     </div>
-    {% include "./layouts/partial/paginacion.html" with page=products%}
+    {% include "../layouts/partial/paginacion.html" with page=products%}
 </div>
 {% endblock %}
