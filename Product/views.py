@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 def product_list(request, category):
     """Vista genérica para listar productos por categoría"""
     products = Product.objects.filter(category=category)  # Filtrar por categoría
-    paginator = Paginator(products, 2)  # 2 productos por página
+    paginator = Paginator(products, 8)  # 2 productos por página
     page = request.GET.get('page')
 
     try:
@@ -18,7 +18,7 @@ def product_list(request, category):
 
     return render(request, f'Product/product_list_{category}.html', {'products': products})
 
-def product_detail(request, id):
+def product_detail(request, id, category):
     """Vista para mostrar el detalle de un producto"""
-    product = get_object_or_404(Product, id=id)  # Busca el producto y muestra 404 si no existe
-    return render(request, 'Product/product_detail.html', {'product': product})
+    product = get_object_or_404(Product, category=category, id=id)  # Busca el producto y muestra 404 si no existe
+    return render(request, f'Product/product_detail_{category}.html', {'product': product})

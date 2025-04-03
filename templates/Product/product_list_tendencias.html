@@ -13,7 +13,13 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
                     </a>
                 </div>
-                <div class = "ml-6 mr-6"><p><b>{{ product.name }}</b></p></div>
+                <div class = "ml-6 mr-6">
+                    <a href="{% url 'product_detail_tendencias' product.id %}">
+                        <p>
+                            <b>{{ product.name }}</b>
+                        </p>
+                    </a>
+                </div>
                 <div class="ml-6"><p>S/. {{ product.price }}</p></div>
                 <div class="ml-6">
                     <a class="mx-1" href="#">
