@@ -27,10 +27,10 @@
             </div>
             <div class="flex items-center gap-8">
                 <div class=" ">
-                    <ion-icon onclick="onToggleHeart(this)" name="heart" class="text-3xl cursor-pointer text-black"></ion-icon>
+                    <ion-icon onclick="onToggleHeart(this)" onKeyPress="onToggleHeart(this)" name="heart" class="text-3xl cursor-pointer text-black "></ion-icon>
                 </div>
                 <div class=" ">
-                    <ion-icon onclick="onTogglePerson(this)" name="person" class="text-3xl cursor-pointer text-black"></ion-icon>
+                    <ion-icon onclick="onTogglePerson(this)" onKeyPress="onTogglePerson(this)" name="person" class="text-3xl cursor-pointer text-black"></ion-icon>
                 </div>
             </div>
         </div>
@@ -39,31 +39,31 @@
                 <input type="text" autocomplete="off" placeholder="Busca lo que necesitas en Tricks" class="text-lg font-medium rounded-md p-2 w-full h-full focus:outline-none">
             </div>
             <div class=" my-4 mb-8"> 
-                <ion-icon onclick="onToggleSearch(this)" class="text-3xl cursor-pointer text-black" name="search"></ion-icon>
+                <ion-icon onclick="onToggleSearch(this)" onKeyPress="onToggleSearch(this)" class="text-3xl cursor-pointer text-black" name="search"></ion-icon>
             </div>
         </div>
         <div class = "font-[poppins] nav-links duration-0  absolute text-black bg-stone-50 md:min-h-[13vh] min-h-[55vh] left-0 top-[-100%] w-full flex items-center z-30 px-5  ">
             <ul class = "flex md:flex-row flex-col justify-between md:items-center md:gap-[4vw] gap-6 w-full ">
                 <li class="w-full flex justify-center items-center">
-                    <a class="hover:underline hover:underline-offset-2" href="{% url 'tendencias' %}">Tendencias</a>
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'product_list_tendencias' %}">Tendencias</a>
                 </li>
                 <li class="w-full flex justify-center items-center">
-                    <a class="hover:underline hover:underline-offset-2" href="{% url 'estiletos' %}">Estiletos</a>
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'product_list_estiletos' %}">Estiletos</a>
                 </li>
                 <li class="w-full flex justify-center items-center">
-                    <a class="hover:underline hover:underline-offset-2" href="{% url 'sandalias' %}">Sandalias</a>
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'product_list_sandalias' %}">Sandalias</a>
                 </li>
                 <li class="w-full flex justify-center items-center">
-                    <a class="hover:underline hover:underline-offset-2" href="{% url 'tacones' %}">Tacones</a>
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'product_list_tacones' %}">Tacones</a>
                 </li>
                 <li class="w-full flex justify-center items-center">
-                    <a class="hover:underline hover:underline-offset-2" href="{% url 'mocasines' %}">Mocasines</a>
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'product_list_mocasines' %}">Mocasines</a>
                 </li>
                 <li class="w-full flex justify-center items-center">
-                    <a class="hover:underline hover:underline-offset-2" href="{% url 'zuecos' %}">Zuecos</a>
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'product_list_zuecos' %}">Zuecos</a>
                 </li>
                 <li class="w-full flex justify-center items-center">
-                    <a class="hover:underline hover:underline-offset-2" href="{% url 'botas' %}">Botas</a>
+                    <a class="hover:underline hover:underline-offset-2" href="{% url 'product_list_botas' %}">Botas</a>
                 </li>
             </ul>
         </div>
