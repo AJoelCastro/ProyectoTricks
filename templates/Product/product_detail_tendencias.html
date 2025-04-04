@@ -1,11 +1,23 @@
 {% extends "../layouts/base.html" %}
 {% load static %}
+{% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+{% endblock %}
 {% block main %}
     <div class="grid grid-cols-2 mx-32">
-        <div class="">
-            {% for image in product.images.all %}
-                <img class="" src="{{ image.image_url }}"/>
-            {% endfor %}
+        <div class="w-full">
+            <div class="swiper mySwiper2 ">
+                <div class="swiper-wrapper">
+                    {% for image in product.images.all %}
+                    <div class="swiper-slide cursor-pointer">
+                            <img src="{{ image.image_url}}" alt="Imagen del producto {{ product.name }}" class="rounded-lg" />
+                        </div>
+                        {% endfor %}
+                </div>
+                <!-- Botones de navegación -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
         <div class="flex flex-col gap-8 bg-white">
             <div class="flex justify-center">
@@ -63,3 +75,28 @@
         </div>
     </div>
 {% endblock  %}
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper2", {
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiperThumbs,
+            },
+        });
+
+        var swiperThumbs = new Swiper(".mySwiper", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+
+        swiper.params.thumbs.swiper = swiperThumbs;
+        swiperThumbs.init();
+    </script>
+{% endblock %}
