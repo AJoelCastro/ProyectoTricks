@@ -53,9 +53,13 @@
                     <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
                     <h3><a href="{% url 'product_detail_tendencias' product.id %}">{{ product.name }}</a></h3>
                     <p>S/. {{ product.price }}</p>
-                    {% for color in product.color.all %}
-                        <p>{{ color.name }}</p>
-                    {% endfor %}
+                    <div class="flex flex-row gap-2 items-center">
+                    <p>Colores disponibles: </p>
+                        {% for color in product.color.all %}
+                            <div class="color-box h-4 w-4 rounded-full" style="background-color: {{ color.codeHexadecimal }};">
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             {% endfor %}

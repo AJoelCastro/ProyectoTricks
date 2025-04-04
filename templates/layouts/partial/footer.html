@@ -1,61 +1,70 @@
 {% load static %}
 <footer class="bg-white p-4">
-    <div class="text-black grid md:grid-cols-5 grid-cols-3">
-        <div class="grid col-span-1 md:block hidden ">
-            <div class="flex justify-center items-center">
-                <img class= "cursor-pointer h-32" src="{% static 'Tricks.jpg' %}"   alt="...">
-            </div>  
-        </div>
-        <div class="grid col-span-1 gap-2">
-            <div class="my-4">
-                <p class="">Ayuda</p>
-            </div>
-            <div class="flex flex-col">
-                <p>Un asesor estara disponible, escribanos via Whatsapp
-                <a class="" href="https://wa.me/+51926619777?text=Alvaro%20gay%20aniaaaaaaaaaaa%20yameteeee%20kudasaiii%20xnxx.com" target="blank">+51 969 742 589
-                </a>
-                </p>
-                <p> O via Correo Electronico a la direccion <a href="#">soporte@tricks.pe</a></p>
-            </div>  
-            <div>
-                <a href="#" class="">Preguntas Frecuentes</a>
-            </div>
-            <div>  
-                <a href="#" class="">Cuidado del producto</a>
-            </div>
-            <div>  
-                <a href="#" class="">Tiendas</a>
+    <div class="text-black grid md:grid-rows-3 grid-rows-1">
+        <div class="row-span-1 p-4 ">
+            <div class="flex flex-row gap-4">
+                <div>
+                    <h3 class="text-4xl font-bold">TRICKS</h3>
+                </div>
+                <div>
+                    <p>Calzado exclusivo para damas</p>
+                </div>
             </div>
         </div>
-        <div class="grid col-span-1 gap-2">
-            <div class="mt-4 ">
-                <p class="">Acerca de Tricks</p>
-            </div>
-            <div>   
-                <a href="#">soporte@tricks.pe</a>
-            </div>  
-            <div>
-                <a href="#" class="">Preguntas Frecuentes</a>
-            </div>
-        </div>      
-        <div class="grid col-span-1 gap-2">
-            <div class="mt-4">
-                <p class="">Recibir correos</p>
-            </div>
-            <div>   
-                <a href="#">soporte@tricks.pe</a>
-            </div>  
-            <div>
-                <a href="#" class="">Preguntas Frecuentes</a>
-            </div>
-        </div>
-        <div class="grid col-span-1 gap-2">
-            <div class="container mx-auto p-4">
+        <div class="row-span-2">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
+                <div class="col-span-1 bg-gray-100 p-4 rounded-lg">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">Categorías</h3>
+                        <p class="text-gray-600"><a href="{% url 'product_list_tendencias' %}">Tendencias</a></p>
+                        <p class="text-gray-600"><a href="{% url 'product_list_estiletos' %}">Estiletos</a></p>
+                        <p class="text-gray-600"><a href="{% url 'product_list_sandalias' %}">Sandalias</a></p>
+                        <p class="text-gray-600"><a href="{% url 'product_list_tacones' %}">Tacones</a></p>
+                        <p class="text-gray-600"><a href="{% url 'product_list_mocasines' %}">Mocasines</a></p>
+                        <p class="text-gray-600"><a href="{% url 'product_list_zuecos' %}">Zuecos</a></p>
+                        <p class="text-gray-600"><a href="{% url 'product_list_botas' %}">Botas</a></p>
+                    </div>
+                </div>
+                <div class="col-span-1 bg-gray-100 p-4 rounded-lg">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">Ayuda</h3>
+                        <p class="text-gray-600"><a href="">Guía de tallas</a></p>
+                        <p class="text-gray-600"><a href="">Cómo comprar</a></p>
+                        <p class="text-gray-600"><a href="">Términos y condiciones</a></p>
+                    </div>
+                </div>
+                <div class="col-span-1 bg-gray-100 p-4 rounded-lg">
+                    <ion-icon name="mail-outline my-3" class="text-[#634AAF]"></ion-icon>
+                    <h3 class="text-xl font-semibold mb-3">Contacto</h3>
+                    <div>
+                        <p class="text-gray-600">Email: Tricks@gmail.com</p>
+                        <p class="text-gray-600">Telefono: +51 987654321</p>
+                        <p class="text-gray-600">Whatsapp: +51 987654321</p>
+                    </div>
+                </div>
+                <div class="col-span-1 bg-gray-100 p-4 rounded-lg">
+                    <ion-icon name="accessibility-outline my-3" class="text-[#634AAF]"></ion-icon>
+                    <h3 class="text-xl font-semibold">Síguenos</h3>
+                    <div>
+                        <div class="flex flex-row gap-2 items-center">
+                            <p class="text-gray-600"><a href="#">Instagram</a></p>
+                            <img src="https://static.vecteezy.com/system/resources/previews/018/930/413/large_2x/instagram-logo-instagram-icon-transparent-free-png.png" alt="" class="w-10 h-10">
+                        </div>
+                        <div class="flex flex-row gap-2 items-center">
+                            <p class="text-gray-600"><a href="#">Facebook</a></p>
+                            <img src="https://static.vecteezy.com/system/resources/previews/018/930/698/original/facebook-logo-facebook-icon-transparent-free-png.png" alt="" class="w-10 h-10">
+                        </div>
+                        <div class="flex flex-row gap-2 items-center">
+                            <p class="text-gray-600"><a href="#">TikTok</a></p>
+                            <img src="https://static.vecteezy.com/system/resources/previews/017/221/712/original/tiktok-icon-transparent-free-png.png" alt="" class="w-10 h-10">
+                        </div>
+                    </div>
+                </div>
                 
             </div>
         </div>
     </div>
-    <div class="flex justify-center">
+    <div class="flex  justify-center items-center mt-8">
         <div>
             <p>&copy; 2024 Tricks. Todos los derechos reservados.</p>
         </div>
