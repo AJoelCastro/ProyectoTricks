@@ -8,9 +8,9 @@
         {% for product in products %}
             <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
                 <div class="flex">
-                    <img src="{{ product.image }}" alt="">
+                    <img src="{{ product.images.first.image_url}}" alt="">
                     <a class="-mx-12 my-4 h-7 w-7" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="">
+                        <ion-icon name="heart-outline" class="text-red-500"></ion-icon>
                     </a>
                 </div>
                 <div class = "ml-6 mr-6">

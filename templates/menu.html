@@ -50,7 +50,7 @@
             {% for product in TENDENCIAS %}
             <div class="item">
                 <div class="product-card">
-                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <img src="{{ product.images.first.image_url }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
                     <h3><a href="{% url 'product_detail_tendencias' product.id %}">{{ product.name }}</a></h3>
                     <p>S/. {{ product.price }}</p>
                     <div class="flex flex-row gap-2 items-center">
@@ -73,7 +73,7 @@
             {% for product in ESTILETOS %}
             <div class="item">
                 <div class="product-card">
-                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <img src="{{ product.images.first.image_url }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
                     <h3>{{ product.name }}</h3>
                     <p>Precio: S/. {{ product.price }}</p>
                 </div>
@@ -89,7 +89,7 @@
             {% for product in SANDALIAS %}
             <div class="item">
                 <div class="product-card">
-                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <img src="{{ product.images.first.image_url }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
                     <h3>{{ product.name }}</h3>
                     <p>Precio: S/. {{ product.price }}</p>
                 </div>
@@ -105,7 +105,7 @@
             {% for product in TACONES %}
             <div class="item">
                 <div class="product-card">
-                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <img src="{{ product.images.first.image_url }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
                     <h3>{{ product.name }}</h3>
                     <p>Precio: S/. {{ product.price }}</p>
                 </div>
@@ -121,7 +121,7 @@
             {% for product in MOCASINES %}
             <div class="item">
                 <div class="product-card">
-                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <img src="{{ product.images.first.image_url }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
                     <h3>{{ product.name }}</h3>
                     <p>Precio: S/. {{ product.price }}</p>
                 </div>
@@ -137,7 +137,7 @@
             {% for product in ZUECOS %}
             <div class="item">
                 <div class="product-card">
-                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <img src="{{ product.images.first.image_url }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
                     <h3>{{ product.name }}</h3>
                     <p>Precio: S/. {{ product.price }}</p>
                 </div>
@@ -153,7 +153,7 @@
             {% for product in BOTAS %}
             <div class="item">
                 <div class="product-card">
-                    <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
+                    <img src="{{ product.images.first.image_url }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
                     <h3>{{ product.name }}</h3>
                     <p>Precio: S/. {{ product.price }}</p>
                 </div>

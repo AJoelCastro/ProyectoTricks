@@ -3,7 +3,9 @@
 {% block main %}
     <div class="grid grid-cols-2 mx-32">
         <div class="">
-            <img class="" src="{{ product.image }}"/>
+            {% for image in product.images.all %}
+                <img class="" src="{{ image.image_url }}"/>
+            {% endfor %}
         </div>
         <div class="flex flex-col gap-8 bg-white">
             <div class="flex justify-center">
