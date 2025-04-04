@@ -9,7 +9,7 @@
             <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
                 <div class="flex">
                     <img src="{{ product.images.first.image_url}}" alt="">
-                    <a class="-mx-12 my-4 h-7 w-7" href="#">
+                    <a class="-mx-12 my-4 h-7 w-7" href="{% url 'add_to_favorites' product.id %}">
                         <ion-icon name="heart-outline" class="text-red-500"></ion-icon>
                     </a>
                 </div>

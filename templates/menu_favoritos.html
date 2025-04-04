@@ -1,4 +1,12 @@
 {% extends "./layouts/base.html" %}
 {% block main %}
-    <div>menu</div>
+    <div>
+        {% for favorite in favorites %}
+            <div>
+                <h2>{{ favorite.product.name }}</h2>
+                <p>{{ favorite.product.description }}</p>
+                <p>{{ favorite.product.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
