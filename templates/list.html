@@ -34,9 +34,21 @@
                     </div>
                 </div>
                 {% empty %}
-                    <div>
-                        <p class="text-center text-gray-500">No hay favoritos</p>
+                <div class="product-card bg-white lg:col-span-4 md:col-span-4 col-span-4 p-6 rounded-2xl shadow-md">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <ion-icon name="heart-dislike" class="text-red-500 text-5xl"></ion-icon>
+                        <p class="text-gray-600 text-xl font-medium">
+                            Aún no tienes productos en tu lista de favoritos.
+                        </p>
+                        <p class="text-gray-500 text-md">
+                            Explora nuestra tienda y agrega tus productos favoritos para verlos aquí.
+                        </p>
+                        <a href="{% url 'menu' %}" class="inline-block mt-2 px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-full transition duration-300">
+                            Ver productos
+                        </a>
                     </div>
+                </div>
+                
             {% endfor %}
         </div>
     </div>
