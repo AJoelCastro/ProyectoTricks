@@ -42,23 +42,25 @@
             </div>
         </div>
     </div>  
-    <div class="bg-gray-100 flex-row overflow-y-auto p-6">
+    <div class="bg-gray-100 flex-row overflow-y-auto p-6 ">
         <div class="m-6 flex  justify-center">
             <h1 class="text-4xl font-bold"><a href="{% url 'product_list_tendencias' %}">TENDENCIAS</a></h1>
         </div>
-        <div class="owl-carousel owl-theme">
+        <div class="owl-carousel owl-theme ">
             {% for product in TENDENCIAS %}
             <div class="item">
-                <div class="product-card">
+                <div class="product-card bg-white rounded-2xl shadow-md mb-4">
                     <img src="{{ product.images.first.image_url }}" alt="{{ product.name }}" style="width: 100%; height: auto;">
-                    <h3><a href="{% url 'product_detail_tendencias' product.id %}">{{ product.name }}</a></h3>
-                    <p>S/. {{ product.price }}</p>
-                    <div class="flex flex-row gap-2 items-center">
-                    <p>Colores disponibles: </p>
-                        {% for color in product.color.all %}
-                            <div class="color-box h-4 w-4 rounded-full" style="background-color: {{ color.codeHexadecimal }};">
-                            </div>
-                        {% endfor %}
+                    <div class="p-4">
+                        <h3><a href="{% url 'product_detail_tendencias' product.id %}">{{ product.name }}</a></h3>
+                        <p>S/. {{ product.price }}</p>
+                        <div class="flex flex-row gap-2 items-center">
+                        <p>Colores disponibles: </p>
+                            {% for color in product.color.all %}
+                                <div class="color-box h-4 w-4 rounded-full" style="background-color: {{ color.codeHexadecimal }};">
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>

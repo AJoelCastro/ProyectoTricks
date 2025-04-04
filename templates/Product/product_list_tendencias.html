@@ -6,7 +6,7 @@
     </div>
     <div class="my-12 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-4 gap-12 m-6 ">
         {% for product in products %}
-            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-2 ">
+            <div class="bg-white lg:col-span-1 md:col-span-2 col-span-4 rounded-2xl shadow-md">
                 <div class="flex">
                     <img src="{{ product.images.first.image_url}}" alt="">
                     <a class="-mx-12 my-4 h-7 w-7" href="{% url 'add_to_favorites' product.id %}">
