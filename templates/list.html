@@ -11,7 +11,7 @@
                         </a>
                     </div>
                     <div class = "ml-6 mr-6">
-                        <a href="{% url 'product_detail_tendencias' favorite.product.id %}">
+                        <a href="{% url favorite.product.url_name favorite.product.id %}">
                             <p>
                                 <b>{{ favorite.product.name }}</b>
                             </p>
@@ -33,6 +33,10 @@
                         </a>
                     </div>
                 </div>
+                {% empty %}
+                    <div>
+                        <p class="text-center text-gray-500">No hay favoritos</p>
+                    </div>
             {% endfor %}
         </div>
     </div>
