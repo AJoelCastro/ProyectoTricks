@@ -6,7 +6,8 @@ from Product.models import Product
 @login_required
 def menu_favoritos(request):
     favorites = Favorite.objects.filter(user=request.user)
-    return render(request, 'menu_favoritos.html', {'favorites': favorites})
+    print("favorites", favorites[0].product.id)
+    return render(request, 'list.html', {'favorites': favorites})
 
 def add_to_favorites(request, product_id):
     product = get_object_or_404(Product, id=product_id)
