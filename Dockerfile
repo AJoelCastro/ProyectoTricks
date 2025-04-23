@@ -15,5 +15,7 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "check"]
+CMD ["sh", "-c", "gunicorn prueba.wsgi:application --bind 0.0.0.0:${PORT:-8000}"]
+
+
 
