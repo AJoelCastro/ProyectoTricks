@@ -2,8 +2,8 @@ FROM python:3.12-alpine3.20
 
 ENV PYTHONUNBUFFERED 1
 
-# Agrega mariadb-connector-c-dev en lugar de postgresql-dev
-RUN apk add --no-cache gcc musl-dev mariadb-connector-c-dev
+# Instalar las dependencias del sistema necesarias para mysqlclient
+RUN apk add --no-cache gcc musl-dev mariadb-dev
 
 WORKDIR /code
 
