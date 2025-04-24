@@ -5,13 +5,6 @@ from dotenv import load_dotenv  # Importar el paquete para cargar el .env
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(os.getenv("SECRET_KEY"))
-print(os.path.join(BASE_DIR, 'staticfiles'))
-print(os.getenv("MYSQL_DATABASE"))
-print(os.getenv("MYSQL_USER"))
-print(os.getenv("MYSQL_PASSWORD"))
-print(os.getenv("MYSQL_HOST"))
-print(os.getenv("MYSQL_PORT"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -23,7 +16,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
 
 # Application definition
