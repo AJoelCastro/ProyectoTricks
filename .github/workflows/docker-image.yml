@@ -31,4 +31,4 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: arturocastro/prueba-django_app:v1.0.1
+        tags: arturocastro/prueba-django_app:v1.0.2
