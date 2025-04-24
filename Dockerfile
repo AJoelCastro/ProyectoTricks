@@ -16,7 +16,7 @@ RUN pip install --upgrade pip --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 10000
+EXPOSE ${PORT:-10000}
 
 CMD ["sh", "-c", "gunicorn prueba.wsgi:application --bind 0.0.0.0:${PORT:-10000}", "--timeout", "120","--workers=1"]
 
