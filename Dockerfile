@@ -1,9 +1,12 @@
-FROM python:3.12-alpine3.20 
+FROM python:3.12-alpine3.20
 
 ENV PYTHONUNBUFFERED 1
 
 # Instalar las dependencias del sistema necesarias para mysqlclient
-RUN apk add --no-cache gcc musl-dev mariadb-dev
+#esto para mysqlclient
+#RUN apk add --no-cache gcc musl-dev mariadb-dev 
+#aqui para pymysql
+RUN apk add --no-cache libffi-dev 
 
 WORKDIR /code
 
