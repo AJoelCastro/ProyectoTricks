@@ -16,7 +16,8 @@ RUN pip install --upgrade pip --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE ${PORT:-10000}
+# Dejar Render manejar el puerto a través de la variable de entorno $PORT
+EXPOSE 10000  
 
 CMD ["sh", "-c", "gunicorn prueba.wsgi:application --bind 0.0.0.0:${PORT:-10000}", "--timeout", "120","--workers=1"]
 
